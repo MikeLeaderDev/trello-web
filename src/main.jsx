@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <CssVarsProvider theme = {theme}> 
       <App />
       <CssBaseline />
-    </CssVarsProvider >    
+    </CssVarsProvider >
   </React.StrictMode>
-   // this is my comment
+  // this is my comment
 )
