@@ -1,7 +1,8 @@
-import { experimental_extendTheme as extendTheme} from '@mui/material/styles'
+import { experimental_extendTheme as extendTheme } from '@mui/material/styles'
 import { red, cyan, teal, deepOrange, orange } from '@mui/material/colors'
 
 const theme = extendTheme({
+  spacing: (factor) => `${0.25 * factor}rem`,
   colorSchemes: {
     light: {
       palette: {
@@ -10,6 +11,9 @@ const theme = extendTheme({
         },
         secondary: {
           main: deepOrange[500]
+        },
+        text: {
+          secondary: red[500]
         }
       }
     },
@@ -20,13 +24,16 @@ const theme = extendTheme({
         },
         secondary: {
           main: orange[500]
+        },
+        text: {
+          secondary: red[500]
         }
       }
     }
-  },
-  text: {
-    secondary: red[500]
   }
+  // text: {
+  //   secondary: red[500]
+  // }
 })
 
 export default theme

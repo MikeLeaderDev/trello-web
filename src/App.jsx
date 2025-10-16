@@ -6,6 +6,7 @@
 import * as React from 'react'
 import { useState } from 'react'
 import Button from '@mui/material/Button'
+import Box from '@mui/material/Box'
 import { AccessAlarm, ThreeDRotation } from '@mui/icons-material'
 import HomeIcon from '@mui/icons-material/Home'
 import { pink, red } from '@mui/material/colors'
@@ -47,19 +48,19 @@ function ModeSelect() {
         onChange={handleChange}
       >
         <MenuItem value="light">
-          <div className="" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}> 
+          <Box className="" sx={{ display: 'flex', alignItems: 'center', gap: 5 }}>
             <LightModeIcon fontSize = 'small'> </LightModeIcon> Light
-          </div>
+          </Box>
         </MenuItem>
         <MenuItem value="dark">
-          <div className="" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}> 
+          <Box className="" sx={{ display: 'flex', alignItems: 'center', gap: 5 }}>
             <DarkModeOutLinedIcon fontSize = 'small'> </DarkModeOutLinedIcon> Dark
-          </div>
+          </Box>
         </MenuItem>
         <MenuItem value="system"> 
-          <div className="" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}> 
+          <Box className="" sx={{ display: 'flex', alignItems: 'center', gap: 5 }}>
             <SettingsBrightnessIcon fontSize = 'small'> </SettingsBrightnessIcon> System
-          </div>
+          </Box>
         </MenuItem>
       </Select>
     </FormControl>
