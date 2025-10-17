@@ -3,6 +3,10 @@ import { red, cyan, teal, deepOrange, orange } from '@mui/material/colors'
 
 const theme = extendTheme({
   spacing: (factor) => `${0.25 * factor}rem`,
+  tCustom: {
+    appBarHeight: '48px',
+    boardBarHeight: '58px'
+  },
   colorSchemes: {
     light: {
       palette: {

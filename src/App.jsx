@@ -1,8 +1,3 @@
-// import useState from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
-// import TextField from '@mui/material/TextField'
 import * as React from 'react'
 import { useState } from 'react'
 import Button from '@mui/material/Button'
@@ -20,6 +15,7 @@ import Select from '@mui/material/Select'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeOutLinedIcon from '@mui/icons-material/DarkModeOutlined'
 import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness'
+import { Container } from '@mui/material'
 
 function HomeIconSVG(props) {
   return (
@@ -67,37 +63,40 @@ function ModeSelect() {
   )
 }
 
-// function ModeToggle() {
-//   const { mode, setMode } = useColorScheme()
-//   return (
-//     <Button onClick = {() => {
-//       setMode (mode ==='light' ? 'dark' : 'light')
-//       // localStorage.setItem('trello-dark-light-mode')
-//       // localStorage.getItem('trello-dark-light-mode')
-//     }}> {mode === 'light' ? 'Turn dark' : 'Turn Light'} </Button>
-//   )
-// }
-
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
     <>
-      <div> 
-        <ModeSelect> </ModeSelect>
-        {/* <ModeToggle> </ModeToggle> */}
-        <p>Trungquandev.com </p>
-        <Typography variant = 'body2' color = "text.secondary" > Variant typo </Typography>
-        <Button variant="contained"> Hello Kitty </Button>
-        <Button variant="outlined"> Hello Happy World </Button>
-        <Button variant="text"> This is my React </Button>
+      <Container disableGutters maxWidth = {false} sx= {{ height: '100vh', backgroundColor: 'primary.main' }}>
+        <Box sx ={{ backgroundColor: 'primary.light', width: '100%', height: (theme) => theme.tCustom.appBarHeight, display: 'flex', aligned_items: 'center' }}>
+          <ModeSelect> </ModeSelect>
+        </Box>
+        <Box sx ={{ backgroundColor: 'primary.dark', width: '100%', height: (theme) => theme.tCustom.boardBarHeight, display: 'flex', aligned_items: 'center' }}>
+          Board bar
+        </Box>
+        <Box sx ={{ backgroundColor: 'primary.main', width: '100%', height: (theme) => `calc(100vh - ${theme.tCustom.appBarHeight} - ${theme.tCustom.boardBarHeight})`, display: 'flex', aligned_items: 'center' }}>
+          Board Content
+        </Box>
+      </Container>
 
-        <AccessAlarm /> 
-        <ThreeDRotation/> 
-        <HomeIcon sx={{ color: pink[500] }} />
-        <HomeIconSVG sx={{ color: red[500] }} />
-      </div>
     </>
+    // <>
+    //   <div>
+    //     <ModeSelect> </ModeSelect>
+    //     {/* <ModeToggle> </ModeToggle> */}
+    //     <p>Trungquandev.com </p>
+    //     <Typography variant = 'body2' color = "text.secondary" > Variant typo </Typography>
+    //     <Button variant="contained"> Hello Kitty </Button>
+    //     <Button variant="outlined"> Hello Happy World </Button>
+    //     <Button variant="text"> This is my React </Button>
+
+    //     <AccessAlarm />
+    //     <ThreeDRotation/>
+    //     <HomeIcon sx={{ color: pink[500] }} />
+    //     <HomeIconSVG sx={{ color: red[500] }} />
+    //   </div>
+    // </>
   )
 }
 
