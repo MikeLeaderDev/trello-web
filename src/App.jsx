@@ -1,12 +1,5 @@
-// import * as React from 'react'
-// import { useState } from 'react'
-// import Button from '@mui/material/Button'
-// import { AccessAlarm, ThreeDRotation } from '@mui/icons-material'
-// import HomeIcon from '@mui/icons-material/Home'
-// import { pink, red } from '@mui/material/colors'
-// import Typography from '@mui/material/Typography'
-// import SvgIcon from '@mui/material/SvgIcon'
-import Box from '@mui/material/Box'
+// import CssBaseline from "@mui/material/CssBaseline"
+import { Box } from '@mui/material'
 import { useColorScheme } from '@mui/material/styles'
 import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
@@ -17,16 +10,10 @@ import DarkModeOutLinedIcon from '@mui/icons-material/DarkModeOutlined'
 import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness'
 import { Container } from '@mui/material'
 
-// function HomeIconSVG(props) {
-//   return (
-//     <SvgIcon {...props}>
-//       <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-//     </SvgIcon>
-//   )
-// }
 
 function ModeSelect() {
   const { mode, setMode } = useColorScheme()
+  const safeMode = mode ?? 'system'
 
   const handleChange = (event) => {
     const selectedMode = event.target.value
@@ -39,7 +26,7 @@ function ModeSelect() {
       <Select
         labelId="label-select-dark-light-mode"
         id="select-dark-light-mode"
-        value={mode}
+        value={safeMode}
         label="Age"
         onChange={handleChange}
       >
@@ -64,8 +51,6 @@ function ModeSelect() {
 }
 
 function App() {
-  // const [count, setCount] = useState(0)
-
   return (
     <>
       <Container disableGutters maxWidth = {false} sx= {{ height: '100vh', backgroundColor: 'primary.main' }}>
@@ -81,22 +66,6 @@ function App() {
       </Container>
 
     </>
-    // <>
-    //   <div>
-    //     <ModeSelect> </ModeSelect>
-    //     {/* <ModeToggle> </ModeToggle> */}
-    //     <p>Trungquandev.com </p>
-    //     <Typography variant = 'body2' color = "text.secondary" > Variant typo </Typography>
-    //     <Button variant="contained"> Hello Kitty </Button>
-    //     <Button variant="outlined"> Hello Happy World </Button>
-    //     <Button variant="text"> This is my React </Button>
-
-    //     <AccessAlarm />
-    //     <ThreeDRotation/>
-    //     <HomeIcon sx={{ color: pink[500] }} />
-    //     <HomeIconSVG sx={{ color: red[500] }} />
-    //   </div>
-    // </>
   )
 }
 
