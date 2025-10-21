@@ -1,6 +1,6 @@
 import React from 'react'
 
-function x() {
+function X() {
   return (
     <>
 
@@ -8,4 +8,4 @@ function x() {
   )
 }
 
-export default x
+export default X
