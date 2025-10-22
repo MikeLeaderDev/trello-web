@@ -12,10 +12,10 @@ const my_palette_light = {
 }
 
 const my_palette_dark = {
-  'primary': 'rgb(32, 30, 67)',
-  'secondary': 'rgb(19, 75, 112)',
-  'secondary_2': 'rgb(80, 140, 155)',
-  'text': 'rgb(238, 238, 238)'
+  'primary': 'rgb(33, 53, 85)',
+  'secondary': 'rgb(62, 88, 121)',
+  'secondary_2': 'rgb(216, 196, 182)',
+  'text': 'rgb(245, 239, 231)'
 }
 
 const theme = extendTheme({
@@ -60,6 +60,27 @@ const theme = extendTheme({
   },
   components: {
     // Name of the component
+    MuiCssBaseline:{
+      styleOverrides: ( theme ) => ({
+        body: {
+          scrollbarWidth: 'thin',
+          scrollbarColor: `${theme.palette.secondary.main} transparent`,
+          '&::-webkit-scrollbar': {
+            width: '8px',
+            height: '8px'
+          },
+          '&::-webkit-scrollbar-thumb': {
+            backgroundColor: theme.palette.secondary.main,
+            borderRadius: '10px'
+          },
+          '&::-webkit-scrollbar-thumb:hover': {
+            backgroundColor: theme.palette.secondary.main,
+            borderRadius: '10px'
+          }
+        }
+      })
+    },
+
     MuiButton: {
       styleOverrides: {
         // Name of the slot
@@ -67,7 +88,7 @@ const theme = extendTheme({
           // Some CSS
           textTransform: 'none',
           transition: 'color .2s ease, background-color .2s ease',
-          '&:hover': { color: theme.palette.secondary.main }
+          '&:hover': { bgcolor: theme.palette.secondary.main }
         })
       }
     },
@@ -98,7 +119,7 @@ const theme = extendTheme({
     MuiMenu: {
       styleOverrides: {
         paper: ({ theme }) => ({
-          backgroundColor: alpha(theme.palette.secondary_2.main, 0.93)
+          backgroundColor: alpha(theme.palette.secondary_2.main, 1)
         })
       }
     }

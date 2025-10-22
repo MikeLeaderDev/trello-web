@@ -33,7 +33,7 @@ function Profiles() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32 }}
+            <Avatar sx={{ width: 36, height: 36 }}
               src="https://cdn11.bigcommerce.com/s-30c33/images/stencil/500x659/products/3709/5704/ArchangelMichaelNew2Small__19839.1649082647.jpg?c=2"
               alt='Micah'
             >Micah</Avatar>

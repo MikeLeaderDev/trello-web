@@ -1,4 +1,5 @@
 // import React from 'react'
+import { useState } from 'react'
 import { Box } from '@mui/material'
 import ModeSelect from '~/components/ModeSelect'
 import AppsIcon from '@mui/icons-material/Apps'
@@ -16,7 +17,7 @@ import Templates from '~/components/AppBar/Menus/Templates.jsx'
 import Button from '@mui/material/Button'
 
 // Text field
-import TextField from '@mui/material/TextField'
+// import TextField from '@mui/material/TextField'
 
 // Badge
 import Badge from '@mui/material/Badge'
@@ -29,49 +30,90 @@ import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
 // Profiles
 import Profiles from '~/components/AppBar/Menus/Profiles.jsx'
 
+// Create
+import LibraryAddIcon from '@mui/icons-material/LibraryAdd'
+
+// Search
+import SearchIcon from '@mui/icons-material/Search'
+import { InputAdornment } from '@mui/material'
+import AnimatedSearch from '~/components/AppBar/animation/AnimatedSearch.jsx'
+import CloseIcon from '@mui/icons-material/Close'
+
+// helpers
+import BorderRules from '~/components/common/BorderRules'
+
 
 function AppBar() {
-
+  const [searchValue, setSearchValue] = useState('')
   return (
     <>
-      <Box px={2} sx ={{ backgroundColor: 'white', width: '100%',
-        height: (theme) => theme.tCustom.appBarHeight, display: 'flex', aligned_items: 'center',
-        justifyContent: 'space-between' }}>
+      <Box sx ={{ backgroundColor: 'white',
+        width: '100%',
+        height: (theme) => theme.tCustom.appBarHeight,
+        display: 'flex',
+        aligned_items: 'center',
+        justifyContent: 'space-between',
+        gap: 2,
+        paddingX: 2,
+        overflowX: 'auto' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
           <AppsIcon sx={{ color: 'primary.main' }} />
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
             <SvgIcon component = {TrelloIcon} inheritViewBox fontSize='small' sx={{ color: 'primary.main' }} />
-            <Typography component="span" variant="body1" sx= {{ fontSize: '1.3rem', fontWeight: 'bold', color: 'primary.main' }} > Trello </Typography>
+            <Typography component="span" variant="body1" sx= {{ fontSize: '1.3rem', fontWeight: 'bold', color: 'primary.main' }} > XTEAM </Typography>
           </Box>
-          <Workspaces />
-          <Recents />
-          <Starred />
-          <Templates />
-          <Button variant="outlined"> Create </Button>
+
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1 }}>
+            <Workspaces />
+            <Recents />
+            <Starred />
+            <Templates />
+            <Button variant="text" startIcon = {<LibraryAddIcon/>} > Create </Button>
+          </Box>
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-          <TextField id="outlined-search" label="Search..." type="search" size= 'small' sx={{
-            width: 200,
-            color: 'success.main',
-            variant: 'outlined',
-            '& .css-e6p3j7-MuiFormLabel-root-MuiInputLabel-root': {
-              color: 'primary.main'
-            },
-            '& .MuiOutlinedInput-root': {
-              borderRadius: '8px',
-              color: 'primary.main'
-            }
-          }}/>
+          <AnimatedSearch
+            id="outlined-search"
+            type="text"
+            size="small"
+            value={searchValue}
+            onChange= {(e) => setSearchValue(e.target.value)}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon sx={{ color: 'primary.main' }} />
+                </InputAdornment>
+              ),
+              endAdornment: (
+                <CloseIcon
+                  sx={{ fontSize: 'small', cursor: 'pointer', color: searchValue ? 'primary.main' : 'transparent' }}
+                  onClick = {() => setSearchValue('')}
+                />
+              )
+            }}
+            sx={{
+              width: 200,
+              color: 'success.main',
+              variant: 'outlined',
+              minWidth: '120px',
+              '& label.Mui-focused': { color: 'primary.main' },
+              '& .MuiOutlinedInput-root' : {
+                '& fieldset': { borderWidth: BorderRules.normal },
+                '&:hover fieldset': { borderWidth: BorderRules.hover },
+                '&.Mui-focused fieldset': { borderWidth: BorderRules.focused }
+              }
+            }}
+          />
           <ModeSelect />
 
           <Tooltip title="Notification">
-            <Badge color="secondary" variant="dot" sx = {{ cursor: 'pointer' }}>
+            <Badge color="warning" variant="dot" sx = {{ cursor: 'pointer' }}>
               <NotificationsNoneIcon sx= {{ color: 'primary.main' }} />
             </Badge>
           </Tooltip>
           <Tooltip title="Help">
-            <Badge color="secondary" variant="" sx = {{ color: 'primary.main', cursor: 'pointer' }}>
-              <HelpOutlineIcon />
+            <Badge color="warning" variant="" sx = {{ cursor: 'pointer' }}>
+              <HelpOutlineIcon sx= {{ color: 'primary.main' }}/>
             </Badge>
           </Tooltip>
           <Profiles />
