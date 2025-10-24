@@ -29,7 +29,7 @@ function BoardBar() {
   return (
     <>
       <Box sx = {{
-        backgroundColor: 'primary.dark',
+        backgroundColor: (theme) => {return theme.palette.primary.dark},
         width: '100%',
         height: (theme) => theme.tCustom.boardBarHeight,
         display: 'flex',
@@ -61,13 +61,13 @@ function BoardBar() {
           />
           <Chip
             sx={MenuStyle}
-            icon={makeHoverIcon(OfflineBoltOutlinedIcon, FilterAltIcon)}
+            icon={makeHoverIcon(OfflineBoltOutlinedIcon, OfflineBoltIcon)}
             label="Automation"
             clickable
           />
           <Chip
             sx={MenuStyle}
-            icon={makeHoverIcon(FilterAltOutlinedIcon, OfflineBoltIcon)}
+            icon={makeHoverIcon(FilterAltOutlinedIcon, FilterAltIcon )}
             label="Filter"
             clickable
           />
@@ -100,9 +100,18 @@ function BoardBar() {
               Invite
           </Button>
 
-          <AvatarGroup max={3}
+          <AvatarGroup max={2}
             sx = {{
-              '& .MuiAvatar-root': { width:33, height:33, fontSize: 16 },
+              '& .MuiAvatar-root': {
+                width:33,
+                height:33,
+                fontSize: 16,
+                border: 'none',
+                color: 'text.primary',
+                // backgroundColor: 'secondary_2.main',
+                cursor: 'pointer',
+                '&:first-of-type': { bgcolor: 'secondary_2.main' }
+              },
               gap: '10px'
             }}>
             <Tooltip title = 'Micah'>
