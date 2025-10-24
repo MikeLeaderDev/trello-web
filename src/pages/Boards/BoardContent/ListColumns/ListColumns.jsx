@@ -1,51 +1,7 @@
 import React from 'react'
-import { Box } from '@mui/material'
-import { Typography } from '@mui/material'
-import Button from '@mui/material/Button'
-import Menu from '@mui/material/Menu'
-import MenuItem from '@mui/material/MenuItem'
-import Divider from '@mui/material/Divider'
-import ListItemText from '@mui/material/ListItemText'
-import ListItemIcon from '@mui/material/ListItemIcon'
-import ContentCut from '@mui/icons-material/ContentCut'
-import Cloud from '@mui/icons-material/Cloud'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import Tooltip from '@mui/material/Tooltip'
-import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline'
-import AddCardIcon from '@mui/icons-material/AddCard'
-import ContentCopyIcon from '@mui/icons-material/ContentCopy'
-import ContentPasteGoIcon from '@mui/icons-material/ContentPasteGo'
-import DragHandleIcon from '@mui/icons-material/DragHandle'
-import Card from '@mui/material/Card'
-import CardActions from '@mui/material/CardActions'
-import CardContent from '@mui/material/CardContent'
-import CardMedia from '@mui/material/CardMedia'
-import GroupIcon from '@mui/icons-material/Group'
-import CommentIcon from '@mui/icons-material/Comment'
-import AttachmentIcon from '@mui/icons-material/Attachment'
 
-const COLUMN_HEADER_HEIGHT = '50px'
-const COLUMN_FOOTER_HEIGHT = '56px'
-
-function BoardContent() {
-  const [anchorEl, setAnchorEl] = React.useState(null)
-  const open = Boolean(anchorEl)
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget)
-  }
-  const handleClose = () => {
-    setAnchorEl(null)
-  }
-
+function ListColumns() {
   return (
-    <>
-      <Box sx ={{
-        bgcolor: (theme) => theme.palette.primary.main,
-        width: '100%',
-        height: (theme) => theme.tCustom.boardContentHeight,
-        // display: 'flex'
-        p: '5px 0'
-      }}>
         <Box sx= {{
           bgcolor: 'inherit',
           width: '100%',
@@ -407,10 +363,7 @@ function BoardContent() {
             </Box>
           </Box>
         </Box>
-      </Box>
-
-    </>
   )
 }
 
-export default BoardContent
+export default ListColumns

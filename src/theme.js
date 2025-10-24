@@ -100,9 +100,6 @@ const theme = extendTheme({
             width: '8px',
             height: '8px'
           },
-          '&::-webkit-scrollbar-track': {
-            backgroundColor: 'transparent'
-          },
           '&::-webkit-scrollbar-thumb': {
             backgroundColor: theme.palette.secondary_2.main,
             borderRadius: '10px'

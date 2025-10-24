@@ -38,7 +38,8 @@ function BoardBar() {
         overflowX: 'hidden',
         paddingX: 9,
         borderBottom: (theme) => `1px solid ${theme.palette.secondary_2.main}`,
-        textColor: 'theme.palette.text.primary' }}>
+        textColor: 'theme.palette.text.primary'
+      }}>
 
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
           <Chip
