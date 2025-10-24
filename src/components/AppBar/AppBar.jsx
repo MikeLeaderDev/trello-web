@@ -1,7 +1,7 @@
 // import React from 'react'
 import { useState } from 'react'
 import { Box } from '@mui/material'
-import ModeSelect from '~/components/ModeSelect'
+import ModeSelect from '~/components/ModeSelect/ModeSelect'
 import AppsIcon from '@mui/icons-material/Apps'
 
 // svg import using svgr plugin

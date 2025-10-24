@@ -76,28 +76,29 @@ function BoardBar() {
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
           <Button
             variant="outlined"
-            // startIcon = { <PersonAddIcon />}
+            startIcon = {makeHoverIcon(PersonAddAltIcon, GroupAddIcon)}
             sx = {{
+              '& .MuiButton-startIcon': { mr: 2.5 },
               color: 'text.primary',
-              bgcolor: 'secondary.dark',
-              width: 120,
-              border: 'none',
+              bgcolor: 'primary.main',
+              width: '100px',
+              border: '2px solid white',
               paddingX: '2px',
               marginX: '4px',
               borderRadius: 1,
-              '& .icon1': { position: 'absolute', left: 10, bottom: -3, opacity: 1, transition: 'opacity 0.1s' },
-              '& .icon2': { position: 'absolute', left: 10, bottom: -3, opacity: 0, transition: 'opacity 0.1s' },
+
+              // hover swap
+              '& .icon1': { opacity: 1 },
+              '& .icon2': { opacity: 0 },
+              '&:hover .icon1': { opacity: 0 },
+              '&:hover .icon2': { opacity: 1 },
               '&:hover': {
                 bgcolor: 'primary.dark',
                 color: 'text.primary',
                 borderWidth: '2px',
                 borderColor: 'white'
-              },
-              '&:hover .icon1' : { opacity: 0 },
-              '&:hover .icon2' : { opacity: 1 }
+              }
             }}>
-            <span className="icon1"><PersonAddAltIcon /></span>
-            <span className="icon2"><GroupAddIcon /></span>
               Invite
           </Button>
 
