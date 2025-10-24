@@ -34,7 +34,7 @@ const BOARD_CONTENT_HEIGHT = `calc(100vh - ${APP_BAR_HEIGHT} - ${BOARD_BAR_HEIGH
 const theme = extendTheme({
   spacing: (factor) => `${0.25 * factor}rem`,
   shape: {
-    borderRadius: '8px' // 3 * 8px = 24px or use plain 12 if you prefer pixel value
+    borderRadius: 2 // 3
   },
   tCustom: {
     appBarHeight: APP_BAR_HEIGHT,
@@ -102,11 +102,11 @@ const theme = extendTheme({
           },
           '&::-webkit-scrollbar-thumb': {
             backgroundColor: theme.palette.secondary_2.main,
-            borderRadius: '10px'
+            borderRadius: 2
           },
           '&::-webkit-scrollbar-thumb:hover': {
             backgroundColor: theme.palette.secondary_2.main,
-            borderRadius: '10px'
+            borderRadius: 2
           }
         }
       })

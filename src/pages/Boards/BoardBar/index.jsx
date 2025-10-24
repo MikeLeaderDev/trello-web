@@ -84,7 +84,7 @@ function BoardBar() {
               border: 'none',
               paddingX: '2px',
               marginX: '4px',
-              borderRadius: '4px',
+              borderRadius: 1,
               '& .icon1': { position: 'absolute', left: 10, bottom: -3, opacity: 1, transition: 'opacity 0.1s' },
               '& .icon2': { position: 'absolute', left: 10, bottom: -3, opacity: 0, transition: 'opacity 0.1s' },
               '&:hover': {

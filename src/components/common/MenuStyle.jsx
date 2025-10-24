@@ -4,7 +4,7 @@ const MenuStyle = {
   border: 'none',
   paddingX: '5px',
   marginX: '4px',
-  borderRadius: '4px',
+  borderRadius: 1,
   position: 'relative',
   cursor: 'pointer',
   transition: 'all 0.15s ease-in-out',
