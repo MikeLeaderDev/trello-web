@@ -2,8 +2,11 @@ import { Box } from '@mui/material'
 import ListCards from './ListCards/ListCards'
 import ColumnHeader from './ColumnHeader'
 import ColumnFooter from './ColumnFooter'
+import { mapOrder } from '~/utils/sorts'
 
 function Column({ column }) {
+
+  const orderedCards = mapOrder(column?.cards, column?.cardOrderIds, '_id')
   return (
     <Box sx={{
       minWidth: '300px',
@@ -20,7 +23,7 @@ function Column({ column }) {
       <ColumnHeader title={column?.title?? null} />
 
       { /* Box List Card*/ }
-      <ListCards cards = {column?.cards?? null} />
+      <ListCards cards = {orderedCards} />
 
       { /* Box Column Footer*/ }
       <ColumnFooter/>
