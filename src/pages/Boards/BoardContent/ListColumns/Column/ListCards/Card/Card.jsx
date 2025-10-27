@@ -8,51 +8,41 @@ import CommentIcon from '@mui/icons-material/Comment'
 import AttachmentIcon from '@mui/icons-material/Attachment'
 import Button from '@mui/material/Button'
 
-function Card( { temporaryHideMedia } ) {
-  if (temporaryHideMedia) {
-    return (
-      <MuiCard sx={{
-        cursor: 'pointer',
-        bgcolor: 'text.primary',
-        boxShadow: (theme) => theme.tCustom.boxShadow,
-        overflow: 'unset',
-        borderRadius: 2
-      }}>
-        <CardContent sx= {{ p:5, '&:last-child': { px: 5, py: 2 } }} >
-          <Typography sx={{ color: 'text.secondary' }}>
-            Church hide media
-          </Typography>
-        </CardContent>
-      </MuiCard>
-    )
+function CardItem( { card } ) {
+
+  const shouldShowCardActions = () => {
+    return (!!card?.memberIds?.length || !!card?.comments?.length || !!card?.attachments?.length)
   }
-  else {
-    return (
-      <MuiCard sx={{
-        cursor: 'pointer',
-        bgcolor: 'text.primary',
-        boxShadow: (theme) => theme.tCustom.boxShadow,
-        overflow: 'unset',
-        borderRadius: 2
-      }}>
-        <CardMedia
-          sx={{ height: 140, borderRadius: '4px 4px 0 0' }}
-          image="https://www.newhollandwood.com/wp-content/uploads/2019/10/1-Monastery-of-the-Holy-Cross-Chicago.jpg"
-          title="Church"
-        />
-        <CardContent sx= {{ p:5, '&:last-child': { px: 5, py: 2 } }} >
-          <Typography sx={{ color: 'text.secondary' }}>
-            Church
-          </Typography>
-        </CardContent>
-        <CardActions sx={{ p: '0 4px 8px 4px' }} >
-          <Button size="small" startIcon= { <GroupIcon sx= {{ mr: 0, ml: 2 }} />}> 20 </Button>
-          <Button size="small" startIcon= { <CommentIcon sx= {{ mr: 0, ml: 2 }} />}> 15 </Button>
-          <Button size="small" startIcon= { <AttachmentIcon sx= {{ mr: 0, ml: 2 }} />}> 10 </Button>
-        </CardActions>
-      </MuiCard>
-    )
-  }
+
+  return (
+    <MuiCard sx={{
+      cursor: 'pointer',
+      bgcolor: 'text.primary',
+      boxShadow: (theme) => theme.tCustom.boxShadow,
+      overflow: 'unset',
+      borderRadius: 2
+    }}>
+      {card?.cover && <CardMedia
+        sx={{ height: 140, borderRadius: '4px 4px 0 0' }}
+        image={card?.cover}
+        // title={card.title}
+      />}
+      <CardContent sx= {{ p:5, '&:last-child': { px: 5, py: 2 } }} >
+        <Typography sx={{ color: 'text.secondary' }}>
+          {card?.title}
+        </Typography>
+      </CardContent>
+      {shouldShowCardActions() && <CardActions sx={{ p: '0 2px 4px 2px' }} >
+        {!!card?.memberIds?.length &&
+        <Button size="small" startIcon= { <GroupIcon sx= {{ mr: 0, ml: 2 }} />}> {card?.memberIds?.length} </Button>}
+        {!!card?.comments?.length &&
+        <Button size="small" startIcon= { <CommentIcon sx= {{ mr: 0, ml: 2 }} />}> {card?.comments?.length} </Button>}
+        {!!card?.attachments?.length &&
+        <Button size="small" startIcon= { <AttachmentIcon sx= {{ mr: 0, ml: 2 }} />}> {card?.attachments?.length} </Button>}
+      </CardActions>}
+
+    </MuiCard>
+  )
 }
 
-export default Card
+export default CardItem

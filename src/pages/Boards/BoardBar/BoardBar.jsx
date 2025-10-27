@@ -26,7 +26,7 @@ import MenuStyle from '~/components/common/MenuStyle'
 import { makeHoverIcon } from '~/components/common/HoverIcon'
 
 // formatter
-import { capitalizeFirstLetter } from '~/utils/formatter'
+import { capitalizeFirstLetter } from '~/utils/formatters'
 
 function BoardBar({ board }) {
   return (
