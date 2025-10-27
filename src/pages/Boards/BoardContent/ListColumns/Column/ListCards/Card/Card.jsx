@@ -15,7 +15,8 @@ function Card( { temporaryHideMedia } ) {
         cursor: 'pointer',
         bgcolor: 'text.primary',
         boxShadow: (theme) => theme.tCustom.boxShadow,
-        overflow: 'unset'
+        overflow: 'unset',
+        borderRadius: 2
       }}>
         <CardContent sx= {{ p:5, '&:last-child': { px: 5, py: 2 } }} >
           <Typography sx={{ color: 'text.secondary' }}>
@@ -31,10 +32,11 @@ function Card( { temporaryHideMedia } ) {
         cursor: 'pointer',
         bgcolor: 'text.primary',
         boxShadow: (theme) => theme.tCustom.boxShadow,
-        overflow: 'unset'
+        overflow: 'unset',
+        borderRadius: 2
       }}>
         <CardMedia
-          sx={{ height: 140, borderRadius: '8px 8px 0 0' }}
+          sx={{ height: 140, borderRadius: '4px 4px 0 0' }}
           image="https://www.newhollandwood.com/wp-content/uploads/2019/10/1-Monastery-of-the-Holy-Cross-Chicago.jpg"
           title="Church"
         />

@@ -1,8 +1,8 @@
 import { Box } from '@mui/material'
-import Column from './Column/Column'
+import Column from './Column/ColumnMain'
 import AddColumn from './AddColumn/AddColumn'
 
-function ListColumns() {
+function ListColumns({ columns }) {
   return (
     <Box
       sx={{
@@ -14,9 +14,12 @@ function ListColumns() {
         overflowY: 'hidden'
       }}
     >
-      <Column />
-      <Column />
-      <Column />
+      {columns?.map((column) => (
+        <Column key={column._id}
+          column={column}
+        />
+      ))}
+      {/* <Column /> */}
       {/* Add new column button box */}
       <AddColumn/>
     </Box>

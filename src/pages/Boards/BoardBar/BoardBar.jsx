@@ -25,7 +25,10 @@ import Button from '@mui/material/Button'
 import MenuStyle from '~/components/common/MenuStyle'
 import { makeHoverIcon } from '~/components/common/HoverIcon'
 
-function BoardBar() {
+// formatter
+import { capitalizeFirstLetter } from '~/utils/formatter'
+
+function BoardBar({ board }) {
   return (
     <>
       <Box sx = {{
@@ -45,13 +48,13 @@ function BoardBar() {
           <Chip
             sx={MenuStyle}
             icon={makeHoverIcon(SpaceDashboardOutlinedIcon, SpaceDashboardIcon)}
-            label="DevTeam Trello"
+            label={board?.title}
             clickable
           />
           <Chip
             sx={MenuStyle}
             icon={makeHoverIcon(AdminPanelSettingsOutlinedIcon, AdminPanelSettingsIcon)}
-            label="Public/ Private Workspace"
+            label={capitalizeFirstLetter(board?.type)}
             clickable
           />
           <Chip
