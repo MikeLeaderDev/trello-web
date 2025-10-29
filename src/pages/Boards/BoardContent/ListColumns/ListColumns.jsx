@@ -1,5 +1,5 @@
 import { Box } from '@mui/material'
-import Column from './Column/ColumnMain'
+import Column from './Column/Column'
 import AddColumn from './AddColumn/AddColumn'
 import { SortableContext, horizontalListSortingStrategy } from '@dnd-kit/sortable'
 
